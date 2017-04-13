@@ -27,14 +27,16 @@ create table comentarista (
     cpf INT PRIMARY KEY NOT NULL,
     nome VARCHAR(100) NOT NULL,
     login VARCHAR(40) NOT NULL,
-    senha VARCHAR(40) NOT NULL
+    senha VARCHAR(40) NOT NULL,
+    CONSTRAINT uniq_coment UNIQUE (login)
 );
 
 create table administrador (
     cpf INT PRIMARY KEY NOT NULL DEFAULT 0,
     nome VARCHAR(100) NOT NULL,
     login VARCHAR(40) NOT NULL,
-    senha VARCHAR(40) NOT NULL
+    senha VARCHAR(40) NOT NULL,
+    CONSTRAINT uniq_adm UNIQUE (login)
 );
 
 ALTER TABLE comentario ADD CONSTRAINT FOREIGN KEY (codigo) REFERENCES filme(codigo);
